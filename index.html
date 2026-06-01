@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lê Chung Hiếu | Digital IC Design Portfolio</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="hero" id="home">
+    <nav class="navbar">
+      <div class="logo">LCH</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Focus</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero-content">
+      <div class="hero-text">
+        <p class="eyebrow">Final-year Electronics Engineering Student</p>
+        <h1>Lê Chung Hiếu</h1>
+        <h2>Digital IC Design • RTL Design • Design Verification • DFT/STA</h2>
+        <p class="hero-desc">
+          I am an Electronics and Telecommunications Engineering student at Ho Chi Minh City University of Technology,
+          focusing on Digital IC Design, RTL development, FPGA prototyping, UVM-based verification, and ASIC frontend flow.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="avatar">LH</div>
+        <h3>Digital IC Design Intern</h3>
+        <p>RTL • FPGA • UVM • STA • DFT</p>
+        <div class="mini-stats">
+          <span><b>TOEIC</b>790/990</span>
+          <span><b>GPA</b>2.7/4.0</span>
+          <span><b>Major</b>ECE</span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section" id="about">
+      <div class="section-title">
+        <p>About Me</p>
+        <h2>Personal Profile</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Career Objective</h3>
+          <p>
+            Seeking internship opportunities in Digital IC / ASIC Design, RTL Design, Verification, DFT, or STA where I can
+            apply my experience in Verilog/SystemVerilog, FPGA implementation, simulation, and timing-aware digital design.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>Education</h3>
+          <p><b>Ho Chi Minh City University of Technology (VNU-HCMUT)</b></p>
+          <p>Faculty of Electrical and Electronics Engineering</p>
+          <p>Major: Electronics and Telecommunications Engineering</p>
+          <p>Final-year student | 2022 – Current</p>
+        </div>
+        <div class="about-card">
+          <h3>Strengths</h3>
+          <p>
+            Hands-on experience in processor architecture, cryptographic accelerator design, DSP systems, UVM verification,
+            waveform debugging, testbench development, and FPGA deployment on DE1-SoC, DE2-115, and DE10 platforms.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="skills">
+      <div class="section-title">
+        <p>Technical Skills</p>
+        <h2>Core Competencies</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-box"><h3>HDL & Programming</h3><p>SystemVerilog, Verilog, VHDL, C, Python, Shell Scripting</p></div>
+        <div class="skill-box"><h3>RTL Design</h3><p>FSM Design, Datapath & Control, Pipeline Design, RISC-V Architecture, DSP Hardware, Crypto Accelerators</p></div>
+        <div class="skill-box"><h3>Verification</h3><p>UVM, Functional Coverage, Cross Coverage, Constrained-Random Verification, SVA, Scoreboarding</p></div>
+        <div class="skill-box"><h3>DFT & STA Awareness</h3><p>Setup/Hold, Timing Constraints, Clock Domains, Controllability, Observability, Basic Testability Concepts</p></div>
+        <div class="skill-box"><h3>EDA Tools</h3><p>Quartus, Vivado, ModelSim, QuestaSim, Cadence Xcelium, Cadence Virtuoso, Visual Studio Code</p></div>
+        <div class="skill-box"><h3>FPGA Platforms</h3><p>DE1-SoC, DE2-115, DE10 Altera FPGA Kit</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-title">
+        <p>Featured Work</p>
+        <h2>Projects</h2>
+      </div>
+      <div class="project-list">
+        <article class="project-card">
+          <div><span class="tag">RTL / Processor</span><h3>32-bit RV32I RISC-V Processor</h3></div>
+          <p>Designed a modular single-cycle and 5-stage pipelined RISC-V processor with ALU, Register File, Control Unit, Immediate Generator, PC, Memory Interface, hazard detection, forwarding, and pipeline control.</p>
+          <p class="tech">SystemVerilog • Cadence Xcelium • Quartus • DE2-115 FPGA</p>
+        </article>
+        <article class="project-card">
+          <div><span class="tag">Post-Quantum Crypto</span><h3>CRYSTALS-Dilithium FPGA Implementation</h3></div>
+          <p>Implemented hardware acceleration modules for CRYSTALS-Dilithium with NTT/Inverse NTT engine, butterfly processing elements, modular reduction, address/twiddle resolver, and datapath optimization.</p>
+          <p class="tech">Verilog • VHDL • Vivado • Quartus • ModelSim</p>
+        </article>
+        <article class="project-card">
+          <div><span class="tag">Crypto Accelerator</span><h3>FPGA-based AES-CTR Encryption Core</h3></div>
+          <p>Designed AES-CTR accelerator supporting AES-128/192/256, including KeyExpansion, Cipher Engine, CTR control logic, AddRoundKey, counter generation, testbench simulation, and FPGA validation.</p>
+          <p class="tech">SystemVerilog • Verilog • Vivado • Quartus • DE1-SoC</p>
+        </article>
+        <article class="project-card">
+          <div><span class="tag">DSP / FPGA</span><h3>Digital Signal Processing on FPGA</h3></div>
+          <p>Implemented FIR and IIR filters for real-time audio processing, optimized arithmetic structures, integrated an I2C audio codec, and validated system behavior through simulation and timing evaluation.</p>
+          <p class="tech">SystemVerilog • Quartus • ModelSim • DE10</p>
+        </article>
+        <article class="project-card">
+          <div><span class="tag">Design Verification</span><h3>UART Verification with UVM</h3></div>
+          <p>Built reusable UVM environment with agent, sequencer, driver, monitor, scoreboard, reference model, configurable baud rate/parity, constrained-random tests, error injection, coverage, and SVA.</p>
+          <p class="tech">SystemVerilog • UVM • QuestaSim • SVA</p>
+        </article>
+        <article class="project-card">
+          <div><span class="tag">AMBA Protocol</span><h3>APB Protocol Verification using UVM</h3></div>
+          <p>Developed UVM components for APB transactions, back-to-back transfers, wait states, functional/cross coverage, setup-enable phase assertions, and protocol-compliance checking.</p>
+          <p class="tech">SystemVerilog • UVM • AMBA APB • Functional Coverage</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section timeline-section" id="experience">
+      <div class="section-title">
+        <p>Professional Direction</p>
+        <h2>Target Internship Tracks</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><h3>Digital IC / ASIC Design</h3><p>RTL architecture, datapath/control design, FPGA prototyping, synthesis-aware design, SoC frontend development.</p></div>
+        <div class="timeline-item"><h3>RTL Design Engineer</h3><p>Verilog/SystemVerilog implementation, processor design, DSP hardware, cryptographic accelerators, pipeline architecture.</p></div>
+        <div class="timeline-item"><h3>Design Verification Engineer</h3><p>UVM testbench architecture, constrained-random verification, coverage-driven methodology, SVA, scoreboard and reference models.</p></div>
+        <div class="timeline-item"><h3>DFT / STA Engineer</h3><p>Timing analysis fundamentals, setup/hold concepts, clock domain awareness, testability concepts, controllability and observability.</p></div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="section-title">
+        <p>Contact</p>
+        <h2>Let’s Connect</h2>
+      </div>
+      <div class="contact-card">
+        <p><b>Email:</b> <a href="mailto:lechunghieu112@gmail.com">lechunghieu112@gmail.com</a></p>
+        <p><b>Phone:</b> <a href="tel:+84369475921">+84 369 475 921</a></p>
+        <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/lechunghieu-ic" target="_blank">linkedin.com/in/lechunghieu-ic</a></p>
+        <p><b>Address:</b> Linh Xuan ward, Thu Duc City, Ho Chi Minh City</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Lê Chung Hiếu. Personal Portfolio Website.</p>
+  </footer>
+</body>
+</html>
