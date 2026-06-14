@@ -11,46 +11,653 @@
       --brand:#5eead4;--brand2:#60a5fa;--brand3:#c084fc;--line:rgba(255,255,255,.12);
       --shadow:0 28px 80px rgba(0,0,0,.42);--radius:24px;
     }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top left,#14345a 0,#07111f 38%,#040713 100%);color:var(--text);line-height:1.65} a{color:inherit;text-decoration:none}.container{width:min(1180px,92%);margin:auto}.muted{color:var(--muted)}
-    .navbar{position:sticky;top:0;z-index:50;background:rgba(6,11,22,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:15px 0}.logo{display:flex;align-items:center;gap:10px;font-weight:900}.logo-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;color:#03121f}.nav-links{display:flex;gap:16px;flex-wrap:wrap}.nav-links a{font-size:.92rem;color:var(--muted);transition:.22s}.nav-links a:hover{color:var(--brand);transform:translateY(-1px)}
-    .hero{padding:84px 0 70px}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:34px;align-items:center}.eyebrow{color:var(--brand);font-weight:900;text-transform:uppercase;letter-spacing:.16em;font-size:.78rem}.hero h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.02;margin:10px 0}.gradient-text{background:linear-gradient(90deg,#fff,var(--brand),var(--brand2),var(--brand3));-webkit-background-clip:text;color:transparent}.hero h2{font-size:clamp(1.08rem,2.2vw,1.65rem);color:#cfe2ff;font-weight:700;margin:0 0 18px}.hero-desc{max-width:780px;color:var(--muted);font-size:1.04rem}.btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:999px;border:1px solid var(--line);font-weight:900;transition:.25s;cursor:pointer}.btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#03121f;border:0}.btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.28)}
-    .hero-card,.info-card,.skill-box,.project-card,.timeline-item,.contact-card{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:var(--radius);padding:22px}.hero-card{padding:26px;box-shadow:var(--shadow);background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035))}.avatar{width:96px;height:96px;border-radius:30px;background:linear-gradient(135deg,var(--brand),var(--brand2),var(--brand3));display:grid;place-items:center;color:#06101d;font-size:2rem;font-weight:950;margin-bottom:18px}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.mini-stats div{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:16px;padding:12px;text-align:center}.mini-stats b{display:block}.mini-stats span{color:var(--muted);font-size:.82rem}
-    .section{padding:72px 0}.section-title{margin-bottom:30px}.section-title p{color:var(--brand);font-weight:900;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}.section-title h2{font-size:clamp(1.8rem,4vw,3rem);margin:0}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.skill-box{transition:.25s}.skill-box:hover{transform:translateY(-5px);border-color:rgba(94,234,212,.45)}
-    .project-toolbar{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:20px;flex-wrap:wrap}.hint{color:var(--muted);font-size:.94rem}.project-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.project-card{position:relative;overflow:hidden;cursor:pointer;transition:.28s;min-height:330px}.project-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(94,234,212,.18),transparent 42%);opacity:.65;pointer-events:none}.project-card:hover{transform:translateY(-8px) scale(1.01);border-color:rgba(94,234,212,.55);box-shadow:0 24px 60px rgba(0,0,0,.32)}.tag{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(94,234,212,.12);color:var(--brand);font-size:.78rem;font-weight:900;border:1px solid rgba(94,234,212,.24)}.project-card h3{font-size:1.35rem;margin:14px 0 8px}.tech{color:#b6c9e6;font-weight:700;font-size:.92rem}.project-meta{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.pill{font-size:.78rem;color:#d8e7ff;background:rgba(96,165,250,.11);border:1px solid rgba(96,165,250,.22);border-radius:999px;padding:5px 9px}.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.preview-box{height:78px;border-radius:14px;background:rgba(255,255,255,.055);border:1px dashed rgba(255,255,255,.18);display:grid;place-items:center;color:#9fb2cc;font-size:.8rem;text-align:center}.open-note{margin-top:16px;color:var(--brand);font-weight:900}.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);text-align:center}
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.72);z-index:100;padding:22px}.modal.active{display:flex}.modal-panel{width:min(1080px,100%);max-height:90vh;overflow:auto;background:#081426;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);position:relative}.modal-head{padding:26px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:flex-start;background:linear-gradient(135deg,rgba(94,234,212,.10),rgba(96,165,250,.08))}.modal-title h2{margin:8px 0 4px;font-size:2rem}.close{width:42px;height:42px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.07);color:#fff;font-size:1.4rem;cursor:pointer}.modal-body{padding:28px}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.detail-box{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:20px;padding:18px}.detail-box h3{margin:0 0 10px}.diagram{min-height:190px;border-radius:18px;border:1px dashed rgba(94,234,212,.35);background:linear-gradient(135deg,rgba(94,234,212,.07),rgba(96,165,250,.05));padding:14px;display:flex;align-items:center;justify-content:center;text-align:center;color:#bcd0ea}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{background:rgba(94,234,212,.1);border:1px solid rgba(94,234,212,.2);color:#d9fffb;border-radius:999px;padding:6px 10px;font-size:.82rem}.placeholder-warning{margin-top:18px;background:rgba(251,191,36,.09);border:1px solid rgba(251,191,36,.22);color:#fde68a;border-radius:18px;padding:14px}.github-link{display:inline-flex;margin-top:12px;color:#03121f;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:999px;padding:10px 14px;font-weight:900}.fade-up{animation:fadeUp .65s both}@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}@media(max-width:900px){.hero-grid,.grid-3,.skills-grid,.project-list,.timeline,.contact-grid,.detail-grid{grid-template-columns:1fr}.nav-links{display:none}.mini-stats{grid-template-columns:1fr}.hero{padding-top:48px}.project-card{min-height:auto}}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top left,#14345a 0,#07111f 38%,#040713 100%);color:var(--text);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1180px,92%);margin:auto}
+    .muted{color:var(--muted)}
+    .navbar{position:sticky;top:0;z-index:50;background:rgba(6,11,22,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:900}
+    .logo-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;color:#03121f}
+    .nav-links{display:flex;gap:16px;flex-wrap:wrap}
+    .nav-links a{font-size:.92rem;color:var(--muted);transition:.22s}
+    .nav-links a:hover{color:var(--brand);transform:translateY(-1px)}
+
+    .hero{padding:84px 0 70px}
+    .hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:34px;align-items:center}
+    .eyebrow{color:var(--brand);font-weight:900;text-transform:uppercase;letter-spacing:.16em;font-size:.78rem}
+    .hero h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.02;margin:10px 0}
+    .gradient-text{background:linear-gradient(90deg,#fff,var(--brand),var(--brand2),var(--brand3));-webkit-background-clip:text;color:transparent}
+    .hero h2{font-size:clamp(1.08rem,2.2vw,1.65rem);color:#cfe2ff;font-weight:700;margin:0 0 18px}
+    .hero-desc{max-width:780px;color:var(--muted);font-size:1.04rem}
+
+    .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:25px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:999px;border:1px solid var(--line);font-weight:900;transition:.25s;cursor:pointer}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#03121f;border:0}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.28)}
+
+    .hero-card,.info-card,.skill-box,.project-card,.timeline-item,.contact-card{
+      background:rgba(255,255,255,.055);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:22px;
+    }
+    .hero-card{padding:26px;box-shadow:var(--shadow);background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035))}
+    .avatar{width:96px;height:96px;border-radius:30px;background:linear-gradient(135deg,var(--brand),var(--brand2),var(--brand3));display:grid;place-items:center;color:#06101d;font-size:2rem;font-weight:950;margin-bottom:18px}
+    .mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+    .mini-stats div{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:16px;padding:12px;text-align:center}
+    .mini-stats b{display:block}
+    .mini-stats span{color:var(--muted);font-size:.82rem}
+
+    .section{padding:72px 0}
+    .section-title{margin-bottom:30px}
+    .section-title p{color:var(--brand);font-weight:900;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}
+    .section-title h2{font-size:clamp(1.8rem,4vw,3rem);margin:0}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .skill-box{transition:.25s}
+    .skill-box:hover{transform:translateY(-5px);border-color:rgba(94,234,212,.45)}
+
+    .project-toolbar{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:20px;flex-wrap:wrap}
+    .hint{color:var(--muted);font-size:.94rem}
+    .project-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project-card{position:relative;overflow:hidden;cursor:pointer;transition:.28s;min-height:330px}
+    .project-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(94,234,212,.18),transparent 42%);opacity:.65;pointer-events:none}
+    .project-card:hover{transform:translateY(-8px) scale(1.01);border-color:rgba(94,234,212,.55);box-shadow:0 24px 60px rgba(0,0,0,.32)}
+    .tag{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(94,234,212,.12);color:var(--brand);font-size:.78rem;font-weight:900;border:1px solid rgba(94,234,212,.24)}
+    .project-card h3{font-size:1.35rem;margin:14px 0 8px}
+    .tech{color:#b6c9e6;font-weight:700;font-size:.92rem}
+    .project-meta{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+    .pill{font-size:.78rem;color:#d8e7ff;background:rgba(96,165,250,.11);border:1px solid rgba(96,165,250,.22);border-radius:999px;padding:5px 9px}
+    .preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+    .preview-box{height:78px;border-radius:14px;background:rgba(255,255,255,.055);border:1px dashed rgba(255,255,255,.18);display:grid;place-items:center;color:#9fb2cc;font-size:.8rem;text-align:center}
+    .open-note{margin-top:16px;color:var(--brand);font-weight:900}
+
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .resume-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+    .footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);text-align:center}
+
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.72);z-index:100;padding:22px}
+    .modal.active{display:flex}
+    .modal-panel{width:min(1080px,100%);max-height:90vh;overflow:auto;background:#081426;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);position:relative}
+    .modal-head{padding:26px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:flex-start;background:linear-gradient(135deg,rgba(94,234,212,.10),rgba(96,165,250,.08))}
+    .modal-title h2{margin:8px 0 4px;font-size:2rem}
+    .close{width:42px;height:42px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.07);color:#fff;font-size:1.4rem;cursor:pointer}
+    .modal-body{padding:28px}
+    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .detail-box{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:20px;padding:18px}
+    .detail-box h3{margin:0 0 10px}
+    .diagram{min-height:190px;border-radius:18px;border:1px dashed rgba(94,234,212,.35);background:linear-gradient(135deg,rgba(94,234,212,.07),rgba(96,165,250,.05));padding:14px;display:flex;align-items:center;justify-content:center;text-align:center;color:#bcd0ea}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:rgba(94,234,212,.1);border:1px solid rgba(94,234,212,.2);color:#d9fffb;border-radius:999px;padding:6px 10px;font-size:.82rem}
+    .placeholder-warning{margin-top:18px;background:rgba(251,191,36,.09);border:1px solid rgba(251,191,36,.22);color:#fde68a;border-radius:18px;padding:14px}
+    .github-link{display:inline-flex;margin-top:12px;color:#03121f;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:999px;padding:10px 14px;font-weight:900}
+    .fade-up{animation:fadeUp .65s both}
+
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:none}
+    }
+
+    @media(max-width:900px){
+      .hero-grid,.grid-3,.skills-grid,.project-list,.timeline,.contact-grid,.detail-grid,.resume-grid{
+        grid-template-columns:1fr;
+      }
+      .nav-links{display:none}
+      .mini-stats{grid-template-columns:1fr}
+      .hero{padding-top:48px}
+      .project-card{min-height:auto}
+    }
   </style>
 </head>
+
 <body>
-  <nav class="navbar"><div class="container nav-inner"><a class="logo" href="#home"><span class="logo-mark">LCH</span><span>LE CHUNG HIEU</span></a><div class="nav-links"><a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#certificates">Certificates</a><a href="#resume">Resume</a><a href="#contact">Contact</a></div></div></nav>
-  <header class="hero container" id="home"><div class="hero-grid"><div class="fade-up"><p class="eyebrow">Digital IC Design • RTL • FPGA • Verification</p><h1>Hi, I’m <span class="gradient-text">LE CHUNG HIEU</span></h1><h2>Final-year Electronics Engineering student targeting Digital IC / ASIC Design Internship</h2><p class="hero-desc">Portfolio này trình bày năng lực theo hướng kỹ sư: kiến trúc RTL, datapath/control, mô phỏng waveform, FPGA prototyping, UVM verification, timing awareness và khả năng triển khai project từ specification đến validation.</p><div class="btn-row"><a class="btn primary" href="#projects">View Interactive Projects</a><a class="btn" href="#resume">Download CV</a></div></div><aside class="hero-card fade-up"><div class="avatar">LH</div><h3>Digital IC / RTL Design Intern</h3><p class="muted">SystemVerilog • Verilog • VHDL • UVM • FPGA • STA/DFT Awareness</p><div class="mini-stats"><div><b>7+</b><span>Projects</span></div><div><b>4</b><span>FPGA Works</span></div><div><b>790</b><span>TOEIC</span></div></div></aside></div></header>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#home">
+        <span class="logo-mark">LCH</span>
+        <span>LE CHUNG HIEU</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero container" id="home">
+    <div class="hero-grid">
+      <div class="fade-up">
+        <p class="eyebrow">Digital IC Design • RTL • FPGA • Verification</p>
+        <h1>Hi, I’m <span class="gradient-text">LE CHUNG HIEU</span></h1>
+        <h2>Final-year Electronics Engineering student targeting Digital IC / ASIC Design Internship</h2>
+
+        <p class="hero-desc">
+          Portfolio này trình bày năng lực theo hướng kỹ sư: kiến trúc RTL, datapath/control,
+          mô phỏng waveform, FPGA prototyping, UVM verification, timing awareness và khả năng
+          triển khai project từ specification đến validation.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn primary" href="#projects">View Interactive Projects</a>
+          <a class="btn" href="CV_LeChungHieu_Digital.pdf" target="_blank">📄 View My CV</a>
+        </div>
+      </div>
+
+      <aside class="hero-card fade-up">
+        <div class="avatar">LH</div>
+        <h3>Digital IC / RTL Design Intern</h3>
+        <p class="muted">SystemVerilog • Verilog • VHDL • UVM • FPGA • STA/DFT Awareness</p>
+
+        <div class="mini-stats">
+          <div><b>7+</b><span>Projects</span></div>
+          <div><b>4</b><span>FPGA Works</span></div>
+          <div><b>790</b><span>TOEIC</span></div>
+        </div>
+
+        <a class="btn primary"
+           href="CV_LeChungHieu_Digital.pdf"
+           target="_blank"
+           style="margin-top:20px;width:100%">
+          ⭐ Featured Resume
+        </a>
+      </aside>
+    </div>
+  </header>
+
   <main>
-    <section class="section container" id="about"><div class="section-title"><p>About</p><h2>Personal Profile</h2></div><div class="grid-3"><div class="info-card"><h3>Career Objective</h3><p class="muted">Seeking internship opportunities in Digital IC / ASIC Design, RTL Design, Design Verification, DFT or STA.</p></div><div class="info-card"><h3>Engineering Focus</h3><p class="muted">RTL architecture, FPGA implementation, cryptographic accelerators, processor design, DSP hardware and UVM verification.</p></div><div class="info-card"><h3>Working Style</h3><p class="muted">Build modular RTL, verify by waveform/testbench, synthesize on FPGA, document result clearly for review.</p></div></div></section>
-    <section class="section container" id="education"><div class="section-title"><p>Education</p><h2>Ho Chi Minh City University of Technology</h2></div><div class="info-card"><h3>VNU-HCMUT • Faculty of Electrical and Electronics Engineering</h3><p class="muted">Major: Electronics and Telecommunications Engineering • Final-year student • 2022 – Current • GPA: 2.7/4.0 • TOEIC Listening/Reading: 790/990</p></div></section>
-    <section class="section container" id="skills"><div class="section-title"><p>Technical Skills</p><h2>Core Competencies</h2></div><div class="skills-grid"><div class="skill-box"><h3>HDL & Programming</h3><p class="muted">SystemVerilog, Verilog, VHDL, C, Python, Shell</p></div><div class="skill-box"><h3>RTL Design</h3><p class="muted">FSM, Datapath/Control, Pipeline, RISC-V, DSP, Crypto Accelerator</p></div><div class="skill-box"><h3>Verification</h3><p class="muted">UVM, Testbench, Scoreboard, Functional Coverage, SVA, Waveform Debug</p></div><div class="skill-box"><h3>EDA Tools</h3><p class="muted">Quartus, Vivado, ModelSim, QuestaSim, Cadence Xcelium, Virtuoso</p></div><div class="skill-box"><h3>FPGA Platforms</h3><p class="muted">DE1-SoC, DE2-115, DE10 FPGA boards</p></div><div class="skill-box"><h3>DFT / STA Awareness</h3><p class="muted">Setup/Hold, Clock Domains, Timing Constraints, Controllability, Observability</p></div></div></section>
-    <section class="section container" id="projects"><div class="project-toolbar"><div class="section-title"><p>Featured Work</p><h2>Interactive Projects</h2></div><p class="hint">Chạm / click vào từng card để mở chi tiết.</p></div><div class="project-list" id="projectList"></div></section>
-    <section class="section container"><div class="section-title"><p>Target Tracks</p><h2>Professional Direction</h2></div><div class="timeline"><div class="timeline-item"><h3>Digital IC / ASIC Design</h3><p class="muted">RTL architecture, frontend flow, FPGA prototyping.</p></div><div class="timeline-item"><h3>RTL Design Engineer</h3><p class="muted">Processor, DSP, cryptographic accelerator, pipeline.</p></div><div class="timeline-item"><h3>Design Verification</h3><p class="muted">UVM environment, coverage, assertions, scoreboard.</p></div><div class="timeline-item"><h3>DFT / STA</h3><p class="muted">Timing concepts, setup/hold, testability awareness.</p></div></div></section>
-    <section class="section container" id="publications"><div class="section-title"><p>Publications</p><h2>Publications & Reports</h2></div><div class="grid-3"><div class="info-card"><h3>RISC-V Processor Report</h3><p class="muted">Add report PDF link here.</p></div><div class="info-card"><h3>AES-CTR Accelerator Report</h3><p class="muted">Add report PDF link here.</p></div><div class="info-card"><h3>Dilithium FPGA Report</h3><p class="muted">Add report PDF link here.</p></div></div></section>
-    <section class="section container" id="certificates"><div class="section-title"><p>Certificates</p><h2>Certificates</h2></div><div class="grid-3"><div class="info-card"><h3>TOEIC 790/990</h3><p class="muted">Listening / Reading certificate.</p></div><div class="info-card"><h3>Digital IC / FPGA</h3><p class="muted">Add relevant course certificates here.</p></div><div class="info-card"><h3>Verification / UVM</h3><p class="muted">Add verification certificates here.</p></div></div></section>
-    <section class="section container" id="resume"><div class="section-title"><p>Resume</p><h2>Download CV</h2></div><div class="contact-grid"><div class="contact-card"><h3>Digital IC / RTL CV</h3><p class="muted">Phiên bản CV định hướng Digital IC Design và RTL Design.</p><div class="btn-row"><a class="btn primary" href="CV_LeChungHieu_Digital.pdf" download>Digital CV</a><a class="btn" href="CV_LeChungHieu_RTL.pdf" download>RTL CV</a></div></div><div class="contact-card"><h3>DFT / STA CV</h3><p class="muted">Phiên bản CV định hướng DFT & STA Engineer.</p><div class="btn-row"><a class="btn primary" href="CV_LeChungHieu_DFT-STA.pdf" download>DFT-STA CV</a><a class="btn" href="CV_LeChungHieu_DV.pdf" download>Digital IC CV</a></div></div></div></section>
-    <section class="section container" id="contact"><div class="section-title"><p>Contact</p><h2>Let’s Connect</h2></div><div class="contact-card"><p><b>Email:</b> <a href="mailto:lechunghieu112@gmail.com">lechunghieu112@gmail.com</a></p><p><b>Phone:</b> <a href="tel:+84369475921">+84 369 475 921</a></p><p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/lechunghieu-ic" target="_blank">linkedin.com/in/lechunghieu-ic</a></p><p><b>Address:</b> Linh Xuan ward, Thu Duc City, Ho Chi Minh City</p></div></section>
+    <section class="section container" id="about">
+      <div class="section-title">
+        <p>About</p>
+        <h2>Personal Profile</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="info-card">
+          <h3>Career Objective</h3>
+          <p class="muted">
+            Seeking internship opportunities in Digital IC / ASIC Design, RTL Design,
+            Design Verification, DFT or STA.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Engineering Focus</h3>
+          <p class="muted">
+            RTL architecture, FPGA implementation, cryptographic accelerators,
+            processor design, DSP hardware and UVM verification.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Working Style</h3>
+          <p class="muted">
+            Build modular RTL, verify by waveform/testbench, synthesize on FPGA,
+            document result clearly for review.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="education">
+      <div class="section-title">
+        <p>Education</p>
+        <h2>Ho Chi Minh City University of Technology</h2>
+      </div>
+
+      <div class="info-card">
+        <h3>VNU-HCMUT • Faculty of Electrical and Electronics Engineering</h3>
+        <p class="muted">
+          Major: Electronics and Telecommunications Engineering • Final-year student •
+          2022 – Current • GPA: 2.7/4.0 • TOEIC Listening/Reading: 790/990
+        </p>
+      </div>
+    </section>
+
+    <section class="section container" id="skills">
+      <div class="section-title">
+        <p>Technical Skills</p>
+        <h2>Core Competencies</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h3>HDL & Programming</h3>
+          <p class="muted">SystemVerilog, Verilog, VHDL, C, Python, Shell</p>
+        </div>
+
+        <div class="skill-box">
+          <h3>RTL Design</h3>
+          <p class="muted">FSM, Datapath/Control, Pipeline, RISC-V, DSP, Crypto Accelerator</p>
+        </div>
+
+        <div class="skill-box">
+          <h3>Verification</h3>
+          <p class="muted">UVM, Testbench, Scoreboard, Functional Coverage, SVA, Waveform Debug</p>
+        </div>
+
+        <div class="skill-box">
+          <h3>EDA Tools</h3>
+          <p class="muted">Quartus, Vivado, ModelSim, QuestaSim, Cadence Xcelium, Virtuoso</p>
+        </div>
+
+        <div class="skill-box">
+          <h3>FPGA Platforms</h3>
+          <p class="muted">DE1-SoC, DE2-115, DE10 FPGA boards</p>
+        </div>
+
+        <div class="skill-box">
+          <h3>DFT / STA Awareness</h3>
+          <p class="muted">Setup/Hold, Clock Domains, Timing Constraints, Controllability, Observability</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="projects">
+      <div class="project-toolbar">
+        <div class="section-title">
+          <p>Featured Work</p>
+          <h2>Interactive Projects</h2>
+        </div>
+
+        <p class="hint">Chạm / click vào từng card để mở chi tiết.</p>
+      </div>
+
+      <div class="project-list" id="projectList"></div>
+    </section>
+
+    <section class="section container">
+      <div class="section-title">
+        <p>Target Tracks</p>
+        <h2>Professional Direction</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Digital IC / ASIC Design</h3>
+          <p class="muted">RTL architecture, frontend flow, FPGA prototyping.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>RTL Design Engineer</h3>
+          <p class="muted">Processor, DSP, cryptographic accelerator, pipeline.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Design Verification</h3>
+          <p class="muted">UVM environment, coverage, assertions, scoreboard.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>DFT / STA</h3>
+          <p class="muted">Timing concepts, setup/hold, testability awareness.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="publications">
+      <div class="section-title">
+        <p>Publications</p>
+        <h2>Publications & Reports</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="info-card">
+          <h3>RISC-V Processor Report</h3>
+          <p class="muted">Add report PDF link here.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>AES-CTR Accelerator Report</h3>
+          <p class="muted">Add report PDF link here.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Dilithium FPGA Report</h3>
+          <p class="muted">Add report PDF link here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="certificates">
+      <div class="section-title">
+        <p>Certificates</p>
+        <h2>Certificates</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="info-card">
+          <h3>TOEIC 790/990</h3>
+          <p class="muted">Listening / Reading certificate.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Digital IC / FPGA</h3>
+          <p class="muted">Add relevant course certificates here.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Verification / UVM</h3>
+          <p class="muted">Add verification certificates here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="resume">
+      <div class="section-title">
+        <p>Resume</p>
+        <h2>Featured CVs</h2>
+      </div>
+
+      <div class="resume-grid">
+        <div class="contact-card">
+          <h3>🚀 Digital IC Design CV</h3>
+          <p class="muted">
+            RTL Design, FPGA, Processor Architecture, Cryptographic Accelerator,
+            ASIC Frontend and Digital IC Design direction.
+          </p>
+
+          <div class="btn-row">
+            <a class="btn primary"
+               href="CV_LeChungHieu_Digital.pdf"
+               target="_blank">
+              📄 View CV
+            </a>
+
+            <a class="btn"
+               href="CV_LeChungHieu_Digital.pdf"
+               download>
+              ⬇ Download
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>🔍 Design Verification CV</h3>
+          <p class="muted">
+            UVM, Assertions, Functional Coverage, Scoreboard, Testbench Architecture
+            and Verification Flow.
+          </p>
+
+          <div class="btn-row">
+            <a class="btn primary"
+               href="CV_LeChungHieu_DV.pdf"
+               target="_blank">
+              📄 View CV
+            </a>
+
+            <a class="btn"
+               href="CV_LeChungHieu_DV.pdf"
+               download>
+              ⬇ Download
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>⏱️ DFT / STA CV</h3>
+          <p class="muted">
+            Static Timing Analysis, Setup/Hold, Clock Domain, Timing Constraints,
+            Testability Awareness and DFT direction.
+          </p>
+
+          <div class="btn-row">
+            <a class="btn primary"
+               href="CV_LeChungHieu_DFT_STA.pdf"
+               target="_blank">
+              📄 View CV
+            </a>
+
+            <a class="btn"
+               href="CV_LeChungHieu_DFT_STA.pdf"
+               download>
+              ⬇ Download
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="contact">
+      <div class="section-title">
+        <p>Contact</p>
+        <h2>Let’s Connect</h2>
+      </div>
+
+      <div class="contact-card">
+        <p><b>Email:</b> <a href="mailto:lechunghieu112@gmail.com">lechunghieu112@gmail.com</a></p>
+        <p><b>Phone:</b> <a href="tel:+84369475921">+84 369 475 921</a></p>
+        <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/lechunghieu-ic" target="_blank">linkedin.com/in/lechunghieu-ic</a></p>
+        <p><b>Address:</b> Linh Xuan ward, Thu Duc City, Ho Chi Minh City</p>
+      </div>
+    </section>
   </main>
-  <footer class="footer">© 2026 LE CHUNG HIEU. Interactive Digital IC Portfolio.</footer>
-  <div class="modal" id="projectModal" aria-hidden="true"><div class="modal-panel"><div class="modal-head"><div class="modal-title"><span class="tag" id="modalTag"></span><h2 id="modalTitle"></h2><p class="muted" id="modalSummary"></p></div><button class="close" id="closeModal">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
+
+  <footer class="footer">
+    © 2026 LE CHUNG HIEU. Interactive Digital IC Portfolio.
+  </footer>
+
+  <div class="modal" id="projectModal" aria-hidden="true">
+    <div class="modal-panel">
+      <div class="modal-head">
+        <div class="modal-title">
+          <span class="tag" id="modalTag"></span>
+          <h2 id="modalTitle"></h2>
+          <p class="muted" id="modalSummary"></p>
+        </div>
+
+        <button class="close" id="closeModal">×</button>
+      </div>
+
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
   <script>
     const projects=[
-      {tag:'RTL / Processor',title:'32-bit RV32I RISC-V Processor',period:'Oct 2025 – Dec 2025',tools:'SystemVerilog • Cadence Xcelium • Quartus • DE2-115 FPGA',summary:'Designed single-cycle and 5-stage pipelined RV32I processor with hazard detection, forwarding and FPGA validation.',architecture:'PC → Instruction Memory → Register File / Immediate Generator → ALU → Data Memory → Write Back. Control Unit decodes opcode/funct fields and generates ALUOp, RegWrite, MemRead, MemWrite, Branch and WB select. Pipeline stages: IF, ID, EX, MEM, WB.',waveform:'Waveform checks: PC update, instruction decode, ALU result, register write-back, memory access, branch decision, stall signal and forwarding mux select.',fpga:'Synthesized on DE2-115 FPGA and validated by running application program such as stopwatch. Replace this area with your Quartus screenshot.',github:'https://github.com/your-username/riscv-processor'},
-      {tag:'Crypto Accelerator',title:'AES-CTR Accelerator',period:'Jun 2025 – Aug 2025',tools:'SystemVerilog • Verilog • Vivado • Quartus • DE1-SoC',summary:'AES-CTR hardware encryption accelerator supporting AES-128/192/256 with modular RTL and FPGA deployment.',architecture:'Plaintext/Counter → AES Cipher Core → XOR Keystream → Ciphertext. Main blocks: KeyExpansion, Cipher Engine, AddRoundKey, SubBytes, ShiftRows, MixColumns, CTR Controller and Counter Generator.',waveform:'Waveform checks: key expansion valid, round counter, block valid/ready, counter increment, keystream generation and ciphertext comparison against test vectors.',fpga:'Validated on DE1-SoC FPGA. Replace this placeholder with board photo, LED/UART result, or Quartus compilation report.',github:'https://github.com/your-username/aes-ctr-fpga'},
-      {tag:'Post-Quantum Crypto',title:'CRYSTALS-Dilithium FPGA Implementation',period:'Oct 2025 – Dec 2025',tools:'Verilog • VHDL • Vivado • Quartus • ModelSim',summary:'Implemented NTT-based polynomial arithmetic modules for Dilithium with optimized datapath and memory access.',architecture:'Polynomial Memory → Address/Twiddle Resolver → Butterfly Processing Element → Modular Reduction → NTT/INTT Output Buffer. Focus on datapath optimization and FPGA resource efficiency.',waveform:'Waveform checks: butterfly input/output, modular reduction correctness, address sequence, twiddle factor selection and test-vector comparison.',fpga:'Synthesized on FPGA and evaluated timing/resource utilization. Replace this placeholder with Vivado/Quartus utilization screenshot.',github:'https://github.com/your-username/dilithium-fpga'},
-      {tag:'DSP / FPGA',title:'DSP on FPGA',period:'Jan 2025 – May 2025',tools:'SystemVerilog • Quartus • ModelSim • DE10',summary:'Implemented FIR/IIR filters for real-time audio processing with I2C audio codec integration.',architecture:'Audio Codec/I2C Interface → Sample Buffer → FIR/IIR Filter Datapath → Output Buffer → Audio Playback. Arithmetic structures optimized for stable real-time processing.',waveform:'Waveform checks: sample valid, coefficient multiply-accumulate, filter output, saturation/rounding behavior and codec handshaking.',fpga:'Validated on DE10 FPGA platform with real-time audio input/output. Replace with board setup photo or filter response plot.',github:'https://github.com/your-username/dsp-fpga'},
-      {tag:'Design Verification',title:'UART UVM Verification',period:'Verification Project',tools:'SystemVerilog • UVM • QuestaSim • SVA',summary:'Reusable UVM environment for UART DUT with random tests, scoreboard, coverage and protocol assertions.',architecture:'UVM Test → Env → Agent → Sequencer/Driver/Monitor → UART DUT → Scoreboard/Reference Model/Coverage. Supports baud rate, parity, stop bit and error injection scenarios.',waveform:'Waveform checks: tx_start, tx_data, serial line, rx_sample, parity error, frame error and scoreboard match/mismatch.',fpga:'Verification-oriented project. FPGA result can be replaced by UART loopback demo, terminal log or coverage report screenshot.',github:'https://github.com/your-username/uart-uvm'},
-      {tag:'AMBA Protocol',title:'APB UVM Verification',period:'Verification Project',tools:'SystemVerilog • UVM • AMBA APB • Functional Coverage',summary:'UVM environment for APB protocol including setup/enable phase checking, wait states and back-to-back transfers.',architecture:'APB Sequence → Driver → APB Master Interface → APB Slave DUT → Monitor → Scoreboard. Checks PSEL, PENABLE, PREADY, PWRITE, PADDR, PWDATA and PRDATA protocol behavior.',waveform:'Waveform checks: setup phase, enable phase, wait-state insertion, read/write transfer, back-to-back transaction and assertion pass/fail.',fpga:'Verification-oriented project. Result can be replaced by simulation transcript, assertion report or functional coverage summary.',github:'https://github.com/your-username/apb-uvm'},
-      {tag:'FIFO / Verification',title:'FIFO Verification',period:'Verification Project',tools:'SystemVerilog • Testbench • Assertions • Coverage',summary:'Verified synchronous/asynchronous FIFO behavior including full/empty, overflow/underflow, pointer and data-order checking.',architecture:'Write Interface → FIFO Memory → Read Interface. For Async FIFO: binary pointer → Gray code pointer → two-flop synchronizer → full/empty generation across clock domains.',waveform:'Waveform checks: wr_en, rd_en, wptr, rptr, full, empty, data ordering, overflow attempt, underflow attempt and reset recovery.',fpga:'Result can be simulation coverage report or FPGA FIFO demo using switches/LED/UART.',github:'https://github.com/your-username/fifo-verification'}
+      {
+        tag:'RTL / Processor',
+        title:'32-bit RV32I RISC-V Processor',
+        period:'Oct 2025 – Dec 2025',
+        tools:'SystemVerilog • Cadence Xcelium • Quartus • DE2-115 FPGA',
+        summary:'Designed single-cycle and 5-stage pipelined RV32I processor with hazard detection, forwarding and FPGA validation.',
+        architecture:'PC → Instruction Memory → Register File / Immediate Generator → ALU → Data Memory → Write Back. Control Unit decodes opcode/funct fields and generates ALUOp, RegWrite, MemRead, MemWrite, Branch and WB select. Pipeline stages: IF, ID, EX, MEM, WB.',
+        waveform:'Waveform checks: PC update, instruction decode, ALU result, register write-back, memory access, branch decision, stall signal and forwarding mux select.',
+        fpga:'Synthesized on DE2-115 FPGA and validated by running application program such as stopwatch. Replace this area with your Quartus screenshot.',
+        github:'https://github.com/your-username/riscv-processor'
+      },
+      {
+        tag:'Crypto Accelerator',
+        title:'AES-CTR Accelerator',
+        period:'Jun 2025 – Aug 2025',
+        tools:'SystemVerilog • Verilog • Vivado • Quartus • DE1-SoC',
+        summary:'AES-CTR hardware encryption accelerator supporting AES-128/192/256 with modular RTL and FPGA deployment.',
+        architecture:'Plaintext/Counter → AES Cipher Core → XOR Keystream → Ciphertext. Main blocks: KeyExpansion, Cipher Engine, AddRoundKey, SubBytes, ShiftRows, MixColumns, CTR Controller and Counter Generator.',
+        waveform:'Waveform checks: key expansion valid, round counter, block valid/ready, counter increment, keystream generation and ciphertext comparison against test vectors.',
+        fpga:'Validated on DE1-SoC FPGA. Replace this placeholder with board photo, LED/UART result, or Quartus compilation report.',
+        github:'https://github.com/your-username/aes-ctr-fpga'
+      },
+      {
+        tag:'Post-Quantum Crypto',
+        title:'CRYSTALS-Dilithium FPGA Implementation',
+        period:'Oct 2025 – Dec 2025',
+        tools:'Verilog • VHDL • Vivado • Quartus • ModelSim',
+        summary:'Implemented NTT-based polynomial arithmetic modules for Dilithium with optimized datapath and memory access.',
+        architecture:'Polynomial Memory → Address/Twiddle Resolver → Butterfly Processing Element → Modular Reduction → NTT/INTT Output Buffer. Focus on datapath optimization and FPGA resource efficiency.',
+        waveform:'Waveform checks: butterfly input/output, modular reduction correctness, address sequence, twiddle factor selection and test-vector comparison.',
+        fpga:'Synthesized on FPGA and evaluated timing/resource utilization. Replace this placeholder with Vivado/Quartus utilization screenshot.',
+        github:'https://github.com/your-username/dilithium-fpga'
+      },
+      {
+        tag:'DSP / FPGA',
+        title:'DSP on FPGA',
+        period:'Jan 2025 – May 2025',
+        tools:'SystemVerilog • Quartus • ModelSim • DE10',
+        summary:'Implemented FIR/IIR filters for real-time audio processing with I2C audio codec integration.',
+        architecture:'Audio Codec/I2C Interface → Sample Buffer → FIR/IIR Filter Datapath → Output Buffer → Audio Playback. Arithmetic structures optimized for stable real-time processing.',
+        waveform:'Waveform checks: sample valid, coefficient multiply-accumulate, filter output, saturation/rounding behavior and codec handshaking.',
+        fpga:'Validated on DE10 FPGA platform with real-time audio input/output. Replace with board setup photo or filter response plot.',
+        github:'https://github.com/your-username/dsp-fpga'
+      },
+      {
+        tag:'Design Verification',
+        title:'UART UVM Verification',
+        period:'Verification Project',
+        tools:'SystemVerilog • UVM • QuestaSim • SVA',
+        summary:'Reusable UVM environment for UART DUT with random tests, scoreboard, coverage and protocol assertions.',
+        architecture:'UVM Test → Env → Agent → Sequencer/Driver/Monitor → UART DUT → Scoreboard/Reference Model/Coverage. Supports baud rate, parity, stop bit and error injection scenarios.',
+        waveform:'Waveform checks: tx_start, tx_data, serial line, rx_sample, parity error, frame error and scoreboard match/mismatch.',
+        fpga:'Verification-oriented project. FPGA result can be replaced by UART loopback demo, terminal log or coverage report screenshot.',
+        github:'https://github.com/your-username/uart-uvm'
+      },
+      {
+        tag:'AMBA Protocol',
+        title:'APB UVM Verification',
+        period:'Verification Project',
+        tools:'SystemVerilog • UVM • AMBA APB • Functional Coverage',
+        summary:'UVM environment for APB protocol including setup/enable phase checking, wait states and back-to-back transfers.',
+        architecture:'APB Sequence → Driver → APB Master Interface → APB Slave DUT → Monitor → Scoreboard. Checks PSEL, PENABLE, PREADY, PWRITE, PADDR, PWDATA and PRDATA protocol behavior.',
+        waveform:'Waveform checks: setup phase, enable phase, wait-state insertion, read/write transfer, back-to-back transaction and assertion pass/fail.',
+        fpga:'Verification-oriented project. Result can be replaced by simulation transcript, assertion report or functional coverage summary.',
+        github:'https://github.com/your-username/apb-uvm'
+      },
+      {
+        tag:'FIFO / Verification',
+        title:'FIFO Verification',
+        period:'Verification Project',
+        tools:'SystemVerilog • Testbench • Assertions • Coverage',
+        summary:'Verified synchronous/asynchronous FIFO behavior including full/empty, overflow/underflow, pointer and data-order checking.',
+        architecture:'Write Interface → FIFO Memory → Read Interface. For Async FIFO: binary pointer → Gray code pointer → two-flop synchronizer → full/empty generation across clock domains.',
+        waveform:'Waveform checks: wr_en, rd_en, wptr, rptr, full, empty, data ordering, overflow attempt, underflow attempt and reset recovery.',
+        fpga:'Result can be simulation coverage report or FPGA FIFO demo using switches/LED/UART.',
+        github:'https://github.com/your-username/fifo-verification'
+      }
     ];
+
     const list=document.getElementById('projectList');
-    projects.forEach((p,i)=>{const card=document.createElement('article');card.className='project-card fade-up';card.style.animationDelay=`${i*70}ms`;card.tabIndex=0;card.innerHTML=`<span class="tag">${p.tag}</span><h3>${p.title}</h3><p class="muted">${p.summary}</p><p class="tech">${p.tools}</p><div class="project-meta"><span class="pill">Block Diagram</span><span class="pill">RTL Architecture</span><span class="pill">Waveform</span><span class="pill">FPGA Result</span></div><div class="preview-grid"><div class="preview-box">Block Diagram</div><div class="preview-box">RTL Architecture</div><div class="preview-box">Waveform</div><div class="preview-box">FPGA Result</div></div><div class="open-note">Click to open details →</div>`;card.onclick=()=>openProject(i);card.onkeydown=e=>{if(e.key==='Enter')openProject(i)};list.appendChild(card)});
+
+    projects.forEach((p,i)=>{
+      const card=document.createElement('article');
+      card.className='project-card fade-up';
+      card.style.animationDelay=`${i*70}ms`;
+      card.tabIndex=0;
+
+      card.innerHTML=`
+        <span class="tag">${p.tag}</span>
+        <h3>${p.title}</h3>
+        <p class="muted">${p.summary}</p>
+        <p class="tech">${p.tools}</p>
+
+        <div class="project-meta">
+          <span class="pill">Block Diagram</span>
+          <span class="pill">RTL Architecture</span>
+          <span class="pill">Waveform</span>
+          <span class="pill">FPGA Result</span>
+        </div>
+
+        <div class="preview-grid">
+          <div class="preview-box">Block Diagram</div>
+          <div class="preview-box">RTL Architecture</div>
+          <div class="preview-box">Waveform</div>
+          <div class="preview-box">FPGA Result</div>
+        </div>
+
+        <div class="open-note">Click to open details →</div>
+      `;
+
+      card.onclick=()=>openProject(i);
+      card.onkeydown=e=>{if(e.key==='Enter')openProject(i)};
+      list.appendChild(card);
+    });
+
     const modal=document.getElementById('projectModal');
-    function openProject(i){const p=projects[i];document.getElementById('modalTag').textContent=p.tag;document.getElementById('modalTitle').textContent=p.title;document.getElementById('modalSummary').textContent=p.summary;document.getElementById('modalBody').innerHTML=`<div class="chips"><span class="chip">${p.period}</span>${p.tools.split(' • ').map(t=>`<span class="chip">${t}</span>`).join('')}</div><div class="detail-grid" style="margin-top:18px"><div class="detail-box"><h3>1. Block Diagram</h3><div class="diagram">${p.architecture}</div></div><div class="detail-box"><h3>2. RTL Architecture</h3><p class="muted">${p.architecture}</p></div><div class="detail-box"><h3>3. Waveform / Simulation</h3><p class="muted">${p.waveform}</p></div><div class="detail-box"><h3>4. FPGA Result / Validation</h3><p class="muted">${p.fpga}</p></div></div><div class="detail-box" style="margin-top:18px"><h3>Engineering Contribution</h3><ul class="muted"><li>Defined module-level architecture and signal interface.</li><li>Implemented synthesizable RTL/testbench structure.</li><li>Debugged functionality through simulation waveform.</li><li>Prepared result section for GitHub README and recruiter review.</li></ul><a class="github-link" href="${p.github}" target="_blank">Open GitHub Link</a><div class="placeholder-warning">Lưu ý: GitHub link hiện đang để dạng placeholder. Bạn chỉ cần thay <b>your-username</b> và repository thật trong mảng <b>projects</b> ở cuối file HTML.</div></div>`;modal.classList.add('active');modal.setAttribute('aria-hidden','false')}
-    document.getElementById('closeModal').onclick=()=>closeModal();modal.onclick=e=>{if(e.target===modal)closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});function closeModal(){modal.classList.remove('active');modal.setAttribute('aria-hidden','true')}
+
+    function openProject(i){
+      const p=projects[i];
+
+      document.getElementById('modalTag').textContent=p.tag;
+      document.getElementById('modalTitle').textContent=p.title;
+      document.getElementById('modalSummary').textContent=p.summary;
+
+      document.getElementById('modalBody').innerHTML=`
+        <div class="chips">
+          <span class="chip">${p.period}</span>
+          ${p.tools.split(' • ').map(t=>`<span class="chip">${t}</span>`).join('')}
+        </div>
+
+        <div class="detail-grid" style="margin-top:18px">
+          <div class="detail-box">
+            <h3>1. Block Diagram</h3>
+            <div class="diagram">${p.architecture}</div>
+          </div>
+
+          <div class="detail-box">
+            <h3>2. RTL Architecture</h3>
+            <p class="muted">${p.architecture}</p>
+          </div>
+
+          <div class="detail-box">
+            <h3>3. Waveform / Simulation</h3>
+            <p class="muted">${p.waveform}</p>
+          </div>
+
+          <div class="detail-box">
+            <h3>4. FPGA Result / Validation</h3>
+            <p class="muted">${p.fpga}</p>
+          </div>
+        </div>
+
+        <div class="detail-box" style="margin-top:18px">
+          <h3>Engineering Contribution</h3>
+
+          <ul class="muted">
+            <li>Defined module-level architecture and signal interface.</li>
+            <li>Implemented synthesizable RTL/testbench structure.</li>
+            <li>Debugged functionality through simulation waveform.</li>
+            <li>Prepared result section for GitHub README and recruiter review.</li>
+          </ul>
+
+          <a class="github-link" href="${p.github}" target="_blank">Open GitHub Link</a>
+
+          <div class="placeholder-warning">
+            Lưu ý: GitHub link hiện đang để dạng placeholder.
+            Bạn chỉ cần thay <b>your-username</b> và repository thật trong mảng
+            <b>projects</b> ở cuối file HTML.
+          </div>
+        </div>
+      `;
+
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden','false');
+    }
+
+    document.getElementById('closeModal').onclick=()=>closeModal();
+
+    modal.onclick=e=>{
+      if(e.target===modal)closeModal();
+    };
+
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape')closeModal();
+    });
+
+    function closeModal(){
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden','true');
+    }
   </script>
 </body>
 </html>
