@@ -113,6 +113,27 @@
       .hero{padding-top:48px}
       .project-card{min-height:auto}
     }
+    .about-click{
+  cursor:pointer;
+  transition:.28s;
+  position:relative;
+  overflow:hidden;
+}
+
+.about-click:hover{
+  transform:translateY(-8px) scale(1.02);
+  border-color:rgba(94,234,212,.55);
+  box-shadow:0 24px 60px rgba(0,0,0,.32);
+}
+
+.about-click::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top right,rgba(94,234,212,.18),transparent 45%);
+  opacity:.7;
+  pointer-events:none;
+}
   </style>
 </head>
 
@@ -186,28 +207,23 @@
       </div>
 
       <div class="grid-3">
-        <div class="info-card">
-          <h3>Career Objective</h3>
-          <p class="muted">
-            Seeking internship opportunities in Digital IC / ASIC Design, RTL Design,
-            Design Verification, DFT or STA.
-          </p>
-        </div>
+          <div class="info-card about-click" onclick="openAbout('career')">
+            <h3>Career Objective</h3>
+            <p class="muted">Seeking internship opportunities in Digital IC / ASIC Design, RTL Design, Design Verification, DFT or STA.</p>
+            <span class="open-note">Click to view details →</span>
+          </div>
 
-        <div class="info-card">
-          <h3>Engineering Focus</h3>
-          <p class="muted">
-            RTL architecture, FPGA implementation, cryptographic accelerators,
-            processor design, DSP hardware and UVM verification.
-          </p>
-        </div>
+          <div class="info-card about-click" onclick="openAbout('focus')">
+            <h3>Engineering Focus</h3>
+            <p class="muted">RTL architecture, FPGA implementation, cryptographic accelerators, processor design, DSP hardware and UVM verification.</p>
+            <span class="open-note">Click to view details →</span>
+          </div>
 
-        <div class="info-card">
-          <h3>Working Style</h3>
-          <p class="muted">
-            Build modular RTL, verify by waveform/testbench, synthesize on FPGA,
-            document result clearly for review.
-          </p>
+          <div class="info-card about-click" onclick="openAbout('style')">
+            <h3>Working Style</h3>
+            <p class="muted">Build modular RTL, verify by waveform/testbench, synthesize on FPGA, document result clearly for review.</p>
+            <span class="open-note">Click to view details →</span>
+          </div>
         </div>
       </div>
     </section>
@@ -658,6 +674,110 @@
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden','true');
     }
+    function openAbout(type){
+  const data = {
+    career: {
+      tag: "Career Direction",
+      title: "Career Objective",
+      summary: "My target is to become a Digital IC / RTL Design Engineer with strong understanding of verification, FPGA implementation and ASIC frontend flow.",
+      body: `
+        <div class="detail-grid">
+          <div class="detail-box">
+            <h3>Target Roles</h3>
+            <ul class="muted">
+              <li>Digital IC Design Intern</li>
+              <li>RTL Design Intern</li>
+              <li>ASIC Frontend Intern</li>
+              <li>Design Verification Intern</li>
+              <li>DFT / STA Intern</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>Why This Direction</h3>
+            <p class="muted">
+              I want to work on real chip design flows where RTL architecture,
+              simulation, timing, verification and hardware validation are connected
+              together from specification to implementation.
+            </p>
+          </div>
+        </div>
+      `
+    },
+
+    focus: {
+      tag: "Engineering Skills",
+      title: "Engineering Focus",
+      summary: "My main technical focus is RTL architecture, FPGA prototyping, processor design, cryptographic accelerator design, DSP hardware and UVM verification.",
+      body: `
+        <div class="detail-grid">
+          <div class="detail-box">
+            <h3>RTL / FPGA Focus</h3>
+            <ul class="muted">
+              <li>RISC-V processor architecture</li>
+              <li>5-stage pipeline design</li>
+              <li>Datapath and control logic</li>
+              <li>AES-CTR hardware accelerator</li>
+              <li>CRYSTALS-Dilithium NTT datapath</li>
+              <li>DSP filters on FPGA</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>Verification Focus</h3>
+            <ul class="muted">
+              <li>SystemVerilog testbench</li>
+              <li>UVM agent, driver, monitor, scoreboard</li>
+              <li>Functional coverage</li>
+              <li>Assertion-based checking</li>
+              <li>Waveform debugging</li>
+            </ul>
+          </div>
+        </div>
+      `
+    },
+
+    style: {
+      tag: "Working Methodology",
+      title: "Working Style",
+      summary: "I prefer a structured engineering workflow: understand specification, design architecture, implement RTL, verify behavior, synthesize and document results clearly.",
+      body: `
+        <div class="detail-grid">
+          <div class="detail-box">
+            <h3>My Workflow</h3>
+            <ul class="muted">
+              <li>Read specification and define module interface</li>
+              <li>Draw block diagram and datapath/control structure</li>
+              <li>Implement synthesizable RTL</li>
+              <li>Build testbench and debug waveform</li>
+              <li>Synthesize on FPGA</li>
+              <li>Document result for report / GitHub / recruiter review</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>Engineering Mindset</h3>
+            <p class="muted">
+              I focus on clean RTL structure, readable signal naming,
+              modular design, verification evidence, waveform explanation,
+              and result-oriented documentation.
+            </p>
+          </div>
+        </div>
+      `
+    }
+  };
+
+  const item = data[type];
+
+  document.getElementById('modalTag').textContent = item.tag;
+  document.getElementById('modalTitle').textContent = item.title;
+  document.getElementById('modalSummary').textContent = item.summary;
+  document.getElementById('modalBody').innerHTML = item.body;
+
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden','false');
+}
   </script>
 </body>
 </html>
