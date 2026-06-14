@@ -134,6 +134,27 @@
   opacity:.7;
   pointer-events:none;
 }
+.skill-click{
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  min-height:220px;
+}
+
+.skill-click::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top right,rgba(94,234,212,.18),transparent 45%);
+  opacity:.7;
+  pointer-events:none;
+}
+
+.skill-click:hover{
+  transform:translateY(-8px) scale(1.02);
+  border-color:rgba(94,234,212,.55);
+  box-shadow:0 24px 60px rgba(0,0,0,.32);
+}  
   </style>
 </head>
 
@@ -238,46 +259,52 @@
         <h3>VNU-HCMUT • Faculty of Electrical and Electronics Engineering</h3>
         <p class="muted">
           Major: Electronics and Telecommunications Engineering • Final-year student •
-          2022 – Current • GPA: 2.7/4.0 • TOEIC Listening/Reading: 790/990
+          2022 – Current • GPA: 7.1/10 • TOEIC Listening/Reading: 790/990
         </p>
       </div>
     </section>
 
     <section class="section container" id="skills">
-      <div class="section-title">
-        <p>Technical Skills</p>
-        <h2>Core Competencies</h2>
-      </div>
+    <div class="section-title">
+      <p>Technical Skills</p>
+      <h2>Core Competencies</h2>
+    </div>
 
       <div class="skills-grid">
-        <div class="skill-box">
+        <div class="skill-box skill-click" onclick="openSkill('hdl')">
           <h3>HDL & Programming</h3>
           <p class="muted">SystemVerilog, Verilog, VHDL, C, Python, Shell</p>
+          <span class="open-note">Click to view details →</span>
         </div>
 
-        <div class="skill-box">
+        <div class="skill-box skill-click" onclick="openSkill('rtl')">
           <h3>RTL Design</h3>
           <p class="muted">FSM, Datapath/Control, Pipeline, RISC-V, DSP, Crypto Accelerator</p>
+          <span class="open-note">Click to view details →</span>
         </div>
 
-        <div class="skill-box">
+        <div class="skill-box skill-click" onclick="openSkill('verification')">
           <h3>Verification</h3>
           <p class="muted">UVM, Testbench, Scoreboard, Functional Coverage, SVA, Waveform Debug</p>
+          <span class="open-note">Click to view details →</span>
         </div>
-
-        <div class="skill-box">
+    
+        <div class="skill-box skill-click" onclick="openSkill('eda')">
           <h3>EDA Tools</h3>
           <p class="muted">Quartus, Vivado, ModelSim, QuestaSim, Cadence Xcelium, Virtuoso</p>
+          <span class="open-note">Click to view details →</span>
         </div>
-
-        <div class="skill-box">
+    
+        <div class="skill-box skill-click" onclick="openSkill('fpga')">
           <h3>FPGA Platforms</h3>
           <p class="muted">DE1-SoC, DE2-115, DE10 FPGA boards</p>
+          <span class="open-note">Click to view details →</span>
         </div>
-
-        <div class="skill-box">
+    
+        <div class="skill-box skill-click" onclick="openSkill('sta')">
           <h3>DFT / STA Awareness</h3>
           <p class="muted">Setup/Hold, Clock Domains, Timing Constraints, Controllability, Observability</p>
+          <span class="open-note">Click to view details →</span>
         </div>
       </div>
     </section>
@@ -300,28 +327,54 @@
         <p>Target Tracks</p>
         <h2>Professional Direction</h2>
       </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <h3>Digital IC / ASIC Design</h3>
-          <p class="muted">RTL architecture, frontend flow, FPGA prototyping.</p>
-        </div>
-
-        <div class="timeline-item">
-          <h3>RTL Design Engineer</h3>
-          <p class="muted">Processor, DSP, cryptographic accelerator, pipeline.</p>
-        </div>
-
-        <div class="timeline-item">
-          <h3>Design Verification</h3>
-          <p class="muted">UVM environment, coverage, assertions, scoreboard.</p>
-        </div>
-
-        <div class="timeline-item">
-          <h3>DFT / STA</h3>
-          <p class="muted">Timing concepts, setup/hold, testability awareness.</p>
-        </div>
+      
+    <div class="timeline">
+         
+      <div class="timeline-item skill-click"
+           onclick="openTrack('asic')">
+        <h3>Digital IC / ASIC Design</h3>
+        <p class="muted">
+          RTL architecture, frontend flow,
+          FPGA prototyping.
+        </p>
+        <span class="open-note">Click to view details →</span>
       </div>
+    
+      <div class="timeline-item skill-click"
+           onclick="openTrack('rtl')">
+        <h3>RTL Design Engineer</h3>
+        <p class="muted">
+          Processor, DSP,
+          cryptographic accelerator,
+          pipeline.
+        </p>
+        <span class="open-note">Click to view details →</span>
+      </div>
+    
+      <div class="timeline-item skill-click"
+           onclick="openTrack('dv')">
+        <h3>Design Verification</h3>
+        <p class="muted">
+          UVM environment,
+          coverage,
+          assertions,
+          scoreboard.
+        </p>
+        <span class="open-note">Click to view details →</span>
+      </div>
+    
+      <div class="timeline-item skill-click"
+           onclick="openTrack('dft')">
+        <h3>DFT / STA</h3>
+        <p class="muted">
+          Timing concepts,
+          setup/hold,
+          testability awareness.
+        </p>
+        <span class="open-note">Click to view details →</span>
+      </div>
+    
+    </div>
     </section>
 
     <section class="section container" id="publications">
@@ -483,6 +536,439 @@
   </div>
 
   <script>
+    function openSkill(type){
+  const data = {
+    hdl: {
+      tag: "Programming Skill",
+      title: "HDL & Programming",
+      summary: "Languages and scripting skills used for RTL design, verification, FPGA implementation and automation.",
+      body: `
+        <div class="detail-grid">
+          <div class="detail-box">
+            <h3>Hardware Description Languages</h3>
+            <ul class="muted">
+              <li>Verilog for synthesizable RTL design.</li>
+              <li>SystemVerilog for RTL and verification testbench.</li>
+              <li>VHDL for FPGA-based academic projects.</li>
+              <li>Module interface definition and hierarchy organization.</li>
+              <li>Combinational and sequential logic coding style.</li>
+              <li>FSM implementation and control signal generation.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>Programming / Scripting</h3>
+            <ul class="muted">
+              <li>C programming for algorithm understanding and embedded logic.</li>
+              <li>Python for test vector generation and result checking.</li>
+              <li>Shell scripting for simulation command automation.</li>
+              <li>Hex/binary data processing for FPGA and crypto test vectors.</li>
+              <li>Basic automation for compile, simulate and waveform workflow.</li>
+            </ul>
+          </div>
+        </div>
+      `
+    },
+
+    rtl: {
+      tag: "RTL Design Skill",
+      title: "RTL Design",
+      summary: "Core capability in designing synthesizable hardware architecture from datapath, control logic, pipeline and accelerator blocks.",
+      body: `
+        <div class="detail-grid">
+          <div class="detail-box">
+            <h3>Digital Architecture</h3>
+            <ul class="muted">
+              <li>Datapath and control path separation.</li>
+              <li>FSM-based controller design.</li>
+              <li>Register-transfer level architecture.</li>
+              <li>Pipeline stage partitioning.</li>
+              <li>Valid/ready style control awareness.</li>
+              <li>Clocked register and combinational block organization.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>Project Application</h3>
+            <ul class="muted">
+              <li>32-bit RV32I RISC-V processor.</li>
+              <li>5-stage pipeline: IF, ID, EX, MEM, WB.</li>
+              <li>Hazard detection and forwarding logic.</li>
+              <li>AES-CTR encryption accelerator.</li>
+              <li>CRYSTALS-Dilithium NTT datapath.</li>
+              <li>FIR/IIR DSP filters on FPGA.</li>
+            </ul>
+          </div>
+        </div>
+      `
+    },
+
+    verification: {
+      tag: "Verification Skill",
+      title: "Design Verification",
+      summary: "Verification capability using SystemVerilog, UVM methodology, waveform debugging, assertion checking and coverage-driven thinking.",
+      body: `
+        <div class="detail-grid">
+          <div class="detail-box">
+            <h3>Testbench Development</h3>
+            <ul class="muted">
+              <li>Self-checking testbench development.</li>
+              <li>Reference model comparison.</li>
+              <li>Directed test and random test scenario creation.</li>
+              <li>Corner case checking for reset, overflow, underflow and invalid transactions.</li>
+              <li>Waveform-based debugging using ModelSim / QuestaSim / Xcelium.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>UVM / Coverage</h3>
+            <ul class="muted">
+              <li>UVM environment structure: env, agent, sequencer, driver, monitor.</li>
+              <li>Scoreboard for expected vs actual comparison.</li>
+              <li>Functional coverage and cross coverage planning.</li>
+              <li>SVA assertion checks for protocol behavior.</li>
+              <li>UART, APB and FIFO verification practice.</li>
+            </ul>
+          </div>
+        </div>
+      `
+    },
+
+    eda: {
+      tag: "EDA Tool Skill",
+      title: "EDA Tools",
+      summary: "Tools used for RTL simulation, synthesis, FPGA implementation, waveform debug and basic IC design exposure.",
+      body: `
+        <div class="detail-grid">
+          <div class="detail-box">
+            <h3>Simulation / Debug</h3>
+            <ul class="muted">
+              <li>ModelSim for RTL simulation and waveform debug.</li>
+              <li>QuestaSim for SystemVerilog/UVM simulation.</li>
+              <li>Cadence Xcelium for Linux-based simulation flow.</li>
+              <li>Waveform analysis for internal signal validation.</li>
+              <li>Simulation transcript and test result checking.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>Synthesis / Implementation</h3>
+            <ul class="muted">
+              <li>Quartus for Intel/Altera FPGA synthesis.</li>
+              <li>Vivado for Xilinx FPGA flow.</li>
+              <li>Timing report and resource utilization review.</li>
+              <li>Cadence Virtuoso basic exposure.</li>
+              <li>DRC, LVS, PEX awareness in layout verification.</li>
+            </ul>
+          </div>
+        </div>
+      `
+    },
+
+    fpga: {
+      tag: "FPGA Skill",
+      title: "FPGA Platforms",
+      summary: "Hands-on experience with FPGA prototyping boards for validating RTL design on real hardware.",
+      body: `
+        <div class="detail-grid">
+          <div class="detail-box">
+            <h3>FPGA Boards</h3>
+            <ul class="muted">
+              <li>DE1-SoC FPGA platform.</li>
+              <li>DE2-115 FPGA board.</li>
+              <li>DE10 FPGA development board.</li>
+              <li>Switch, LED, clock and reset integration.</li>
+              <li>Basic board-level validation and debugging.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>FPGA Projects</h3>
+            <ul class="muted">
+              <li>RISC-V processor deployment on DE2-115.</li>
+              <li>AES-CTR accelerator validation on DE1-SoC.</li>
+              <li>DSP audio processing on DE10.</li>
+              <li>Quartus compilation and pin assignment.</li>
+              <li>Timing/resource utilization evaluation.</li>
+            </ul>
+          </div>
+        </div>
+      `
+    },
+
+    sta: {
+      tag: "Timing / Testability Skill",
+      title: "DFT / STA Awareness",
+      summary: "Basic understanding of timing analysis and testability concepts used in ASIC/FPGA design flows.",
+      body: `
+        <div class="detail-grid">
+          <div class="detail-box">
+            <h3>STA Awareness</h3>
+            <ul class="muted">
+              <li>Setup and hold timing concepts.</li>
+              <li>Clock period, clock path and data path awareness.</li>
+              <li>Critical path identification mindset.</li>
+              <li>Timing constraint awareness for FPGA implementation.</li>
+              <li>Pipeline design as a method to improve timing.</li>
+              <li>Clock domain and reset behavior awareness.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>DFT Awareness</h3>
+            <ul class="muted">
+              <li>Basic understanding of controllability and observability.</li>
+              <li>Awareness of scan chain purpose.</li>
+              <li>Understanding why testability matters in chip design.</li>
+              <li>Connection between RTL structure and test coverage.</li>
+              <li>Interest in DFT flow, ATPG, fault model and timing-aware test.</li>
+            </ul>
+          </div>
+        </div>
+      `
+    }
+  };
+
+  const item = data[type];
+
+  document.getElementById('modalTag').textContent = item.tag;
+  document.getElementById('modalTitle').textContent = item.title;
+  document.getElementById('modalSummary').textContent = item.summary;
+  document.getElementById('modalBody').innerHTML = item.body;
+
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden','false');
+}
+  function openTrack(type){
+
+ const data={
+
+  asic:{
+   tag:"Career Path",
+   title:"Digital IC / ASIC Design",
+
+   summary:"Focus on RTL architecture, ASIC frontend flow, FPGA prototyping and digital hardware implementation.",
+
+   body:`
+   <div class="detail-grid">
+
+    <div class="detail-box">
+      <h3>Core Knowledge</h3>
+      <ul class="muted">
+       <li>RTL architecture design</li>
+       <li>Datapath / Control partitioning</li>
+       <li>FSM implementation</li>
+       <li>Pipeline design</li>
+       <li>Microarchitecture planning</li>
+       <li>Synthesizable RTL coding</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>ASIC Frontend Flow</h3>
+      <ul class="muted">
+       <li>Specification analysis</li>
+       <li>Architecture definition</li>
+       <li>RTL coding</li>
+       <li>Simulation and debugging</li>
+       <li>Synthesis</li>
+       <li>Timing analysis awareness</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>Relevant Projects</h3>
+      <ul class="muted">
+       <li>RV32I RISC-V Processor</li>
+       <li>AES-CTR Accelerator</li>
+       <li>CRYSTALS-Dilithium</li>
+       <li>DSP on FPGA</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>Long-Term Goal</h3>
+      <p class="muted">
+       Become an ASIC Frontend Engineer capable of designing
+       complex SoC subsystems from architecture to silicon-ready RTL.
+      </p>
+    </div>
+
+   </div>
+   `
+  },
+
+  rtl:{
+   tag:"Engineering Track",
+   title:"RTL Design Engineer",
+
+   summary:"Design synthesizable digital hardware blocks and processor subsystems.",
+
+   body:`
+   <div class="detail-grid">
+
+    <div class="detail-box">
+      <h3>RTL Responsibilities</h3>
+      <ul class="muted">
+       <li>Write synthesizable Verilog/SystemVerilog</li>
+       <li>Develop datapath architecture</li>
+       <li>Implement control FSM</li>
+       <li>Create reusable RTL modules</li>
+       <li>Optimize latency and throughput</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>Architecture Topics</h3>
+      <ul class="muted">
+       <li>Pipeline architecture</li>
+       <li>Hazard detection</li>
+       <li>Forwarding logic</li>
+       <li>Memory interface</li>
+       <li>Bus protocol integration</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>Processor Experience</h3>
+      <ul class="muted">
+       <li>RV32I ISA</li>
+       <li>Instruction Decode</li>
+       <li>ALU Design</li>
+       <li>Register File</li>
+       <li>Control Unit</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>Engineering Goal</h3>
+      <p class="muted">
+       Build scalable RTL architectures that can pass verification,
+       synthesis and timing closure efficiently.
+      </p>
+    </div>
+
+   </div>
+   `
+  },
+
+  dv:{
+   tag:"Verification Track",
+   title:"Design Verification",
+
+   summary:"Ensure functional correctness of RTL before tapeout.",
+
+   body:`
+   <div class="detail-grid">
+
+    <div class="detail-box">
+      <h3>Verification Methodology</h3>
+      <ul class="muted">
+       <li>SystemVerilog Testbench</li>
+       <li>UVM Environment</li>
+       <li>Scoreboard</li>
+       <li>Monitor</li>
+       <li>Driver</li>
+       <li>Sequencer</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>Coverage</h3>
+      <ul class="muted">
+       <li>Functional Coverage</li>
+       <li>Cross Coverage</li>
+       <li>Coverage Closure</li>
+       <li>Corner Case Analysis</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>Protocols Verified</h3>
+      <ul class="muted">
+       <li>UART</li>
+       <li>APB</li>
+       <li>FIFO</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>Future Direction</h3>
+      <p class="muted">
+       Improve UVM, Assertions, Coverage Closure and Formal Verification knowledge.
+      </p>
+    </div>
+
+   </div>
+   `
+  },
+
+  dft:{
+   tag:"Timing & Test",
+   title:"DFT / STA",
+
+   summary:"Timing-aware digital design and testability awareness.",
+
+   body:`
+   <div class="detail-grid">
+
+    <div class="detail-box">
+      <h3>Static Timing Analysis</h3>
+      <ul class="muted">
+       <li>Setup Time</li>
+       <li>Hold Time</li>
+       <li>Critical Path</li>
+       <li>Clock Path</li>
+       <li>Data Path</li>
+       <li>Timing Constraints</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>DFT Concepts</h3>
+      <ul class="muted">
+       <li>Controllability</li>
+       <li>Observability</li>
+       <li>Scan Chain</li>
+       <li>ATPG Awareness</li>
+       <li>Fault Coverage</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>Timing Mindset</h3>
+      <ul class="muted">
+       <li>Pipeline insertion</li>
+       <li>Register balancing</li>
+       <li>Clock domain awareness</li>
+       <li>Reset strategy</li>
+      </ul>
+    </div>
+
+    <div class="detail-box">
+      <h3>Learning Plan</h3>
+      <p class="muted">
+       Continue learning PrimeTime, DFT flow,
+       scan insertion and timing closure techniques.
+      </p>
+    </div>
+
+   </div>
+   `
+  }
+
+ };
+
+ const item=data[type];
+
+ document.getElementById('modalTag').textContent=item.tag;
+ document.getElementById('modalTitle').textContent=item.title;
+ document.getElementById('modalSummary').textContent=item.summary;
+ document.getElementById('modalBody').innerHTML=item.body;
+
+ modal.classList.add('active');
+ modal.setAttribute('aria-hidden','false');
+} 
     const projects=[
       {
         tag:'RTL / Processor',
