@@ -679,7 +679,7 @@
     career: {
       tag: "Career Direction",
       title: "Career Objective",
-      summary: "My target is to become a Digital IC / RTL Design Engineer with strong understanding of verification, FPGA implementation and ASIC frontend flow.",
+      summary: "My target is to become a Digital IC / RTL Design Engineer with strong practical capability in RTL architecture, FPGA implementation, verification, timing awareness and ASIC frontend flow.",
       body: `
         <div class="detail-grid">
           <div class="detail-box">
@@ -687,19 +687,43 @@
             <ul class="muted">
               <li>Digital IC Design Intern</li>
               <li>RTL Design Intern</li>
-              <li>ASIC Frontend Intern</li>
+              <li>ASIC Frontend Design Intern</li>
+              <li>FPGA Design Intern</li>
               <li>Design Verification Intern</li>
               <li>DFT / STA Intern</li>
             </ul>
           </div>
 
           <div class="detail-box">
-            <h3>Why This Direction</h3>
+            <h3>Career Motivation</h3>
             <p class="muted">
-              I want to work on real chip design flows where RTL architecture,
-              simulation, timing, verification and hardware validation are connected
-              together from specification to implementation.
+              I am interested in the complete digital design flow, from specification,
+              micro-architecture, RTL implementation, simulation, synthesis, timing checking,
+              to FPGA validation. My goal is to improve my ability to design reliable,
+              synthesizable and timing-aware hardware modules for real ASIC/SoC projects.
             </p>
+          </div>
+
+          <div class="detail-box">
+            <h3>Current Strengths</h3>
+            <ul class="muted">
+              <li>Hands-on experience with Verilog/SystemVerilog RTL design.</li>
+              <li>Experience in processor architecture, AES accelerator, PQC hardware and DSP systems.</li>
+              <li>Ability to debug design behavior through waveform analysis.</li>
+              <li>Experience with FPGA synthesis and board-level validation.</li>
+              <li>Understanding of datapath/control separation and modular RTL coding.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>Development Goals</h3>
+            <ul class="muted">
+              <li>Improve ASIC frontend design flow knowledge.</li>
+              <li>Strengthen timing closure mindset: setup, hold, clock path and constraints.</li>
+              <li>Build stronger UVM-based verification environments.</li>
+              <li>Learn more about lint, CDC, synthesis, STA, DFT and low-power design flow.</li>
+              <li>Contribute to real industrial chip design projects.</li>
+            </ul>
           </div>
         </div>
       `
@@ -708,29 +732,57 @@
     focus: {
       tag: "Engineering Skills",
       title: "Engineering Focus",
-      summary: "My main technical focus is RTL architecture, FPGA prototyping, processor design, cryptographic accelerator design, DSP hardware and UVM verification.",
+      summary: "My main technical focus is RTL architecture, FPGA prototyping, processor design, cryptographic accelerator design, DSP hardware, UVM verification and timing-aware digital design.",
       body: `
         <div class="detail-grid">
           <div class="detail-box">
-            <h3>RTL / FPGA Focus</h3>
+            <h3>RTL / FPGA Design</h3>
             <ul class="muted">
-              <li>RISC-V processor architecture</li>
-              <li>5-stage pipeline design</li>
-              <li>Datapath and control logic</li>
-              <li>AES-CTR hardware accelerator</li>
-              <li>CRYSTALS-Dilithium NTT datapath</li>
-              <li>DSP filters on FPGA</li>
+              <li>32-bit RV32I RISC-V processor architecture.</li>
+              <li>Single-cycle and 5-stage pipelined processor design.</li>
+              <li>Datapath and control unit separation.</li>
+              <li>FSM-based controller design.</li>
+              <li>Register file, ALU, immediate generator and memory interface.</li>
+              <li>Hazard detection, forwarding and pipeline control.</li>
+              <li>FPGA synthesis and validation on DE1-SoC, DE2-115 and DE10 boards.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>Cryptographic Hardware</h3>
+            <ul class="muted">
+              <li>AES-CTR encryption accelerator supporting AES-128/192/256.</li>
+              <li>KeyExpansion, Cipher Engine, AddRoundKey and CTR controller.</li>
+              <li>Counter generation and keystream XOR datapath.</li>
+              <li>CRYSTALS-Dilithium hardware acceleration.</li>
+              <li>NTT / Inverse NTT engine design.</li>
+              <li>Butterfly processing element and modular reduction.</li>
+              <li>Address generator and twiddle factor access organization.</li>
             </ul>
           </div>
 
           <div class="detail-box">
             <h3>Verification Focus</h3>
             <ul class="muted">
-              <li>SystemVerilog testbench</li>
-              <li>UVM agent, driver, monitor, scoreboard</li>
-              <li>Functional coverage</li>
-              <li>Assertion-based checking</li>
-              <li>Waveform debugging</li>
+              <li>SystemVerilog testbench development.</li>
+              <li>Self-checking testbench and reference model comparison.</li>
+              <li>UVM agent, driver, monitor, sequencer and scoreboard.</li>
+              <li>Functional coverage and cross coverage planning.</li>
+              <li>Assertion-based checking using SVA.</li>
+              <li>Protocol verification for UART, APB and FIFO.</li>
+              <li>Waveform debugging using ModelSim / QuestaSim / Xcelium.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>Timing / Implementation Awareness</h3>
+            <ul class="muted">
+              <li>Basic understanding of setup and hold timing.</li>
+              <li>Clock domain and reset strategy awareness.</li>
+              <li>Timing constraint mindset for FPGA implementation.</li>
+              <li>Awareness of critical path, pipeline depth and register placement.</li>
+              <li>Understanding of controllability and observability in DFT.</li>
+              <li>Reading synthesis reports, timing reports and resource utilization.</li>
             </ul>
           </div>
         </div>
@@ -740,28 +792,71 @@
     style: {
       tag: "Working Methodology",
       title: "Working Style",
-      summary: "I prefer a structured engineering workflow: understand specification, design architecture, implement RTL, verify behavior, synthesize and document results clearly.",
+      summary: "I prefer a structured engineering workflow: understand specification, define architecture, implement clean RTL, verify behavior, synthesize on FPGA and document evidence clearly.",
       body: `
         <div class="detail-grid">
           <div class="detail-box">
-            <h3>My Workflow</h3>
+            <h3>1. Specification Understanding</h3>
             <ul class="muted">
-              <li>Read specification and define module interface</li>
-              <li>Draw block diagram and datapath/control structure</li>
-              <li>Implement synthesizable RTL</li>
-              <li>Build testbench and debug waveform</li>
-              <li>Synthesize on FPGA</li>
-              <li>Document result for report / GitHub / recruiter review</li>
+              <li>Read project requirements and define expected input/output behavior.</li>
+              <li>Identify key modules, clock/reset behavior and interface signals.</li>
+              <li>Clarify datapath width, latency, throughput and control conditions.</li>
+              <li>Break the system into smaller synthesizable RTL blocks.</li>
             </ul>
           </div>
 
           <div class="detail-box">
-            <h3>Engineering Mindset</h3>
-            <p class="muted">
-              I focus on clean RTL structure, readable signal naming,
-              modular design, verification evidence, waveform explanation,
-              and result-oriented documentation.
-            </p>
+            <h3>2. Architecture Design</h3>
+            <ul class="muted">
+              <li>Draw block diagram before coding RTL.</li>
+              <li>Separate datapath and control logic for better readability.</li>
+              <li>Use FSM for control-heavy designs.</li>
+              <li>Define register stages for pipelined architectures.</li>
+              <li>Consider timing and resource usage early in the design stage.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>3. RTL Implementation</h3>
+            <ul class="muted">
+              <li>Write synthesizable Verilog/SystemVerilog code.</li>
+              <li>Use meaningful signal names and clean module interfaces.</li>
+              <li>Avoid unintended latch inference.</li>
+              <li>Separate combinational and sequential logic clearly.</li>
+              <li>Keep RTL modular for reuse and easier verification.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>4. Verification & Debug</h3>
+            <ul class="muted">
+              <li>Develop testbench and test vectors for normal and corner cases.</li>
+              <li>Use waveform to debug internal signal transitions.</li>
+              <li>Compare DUT output with expected/reference result.</li>
+              <li>Check reset behavior, valid/ready handshaking and boundary cases.</li>
+              <li>Document important waveform evidence for reports and GitHub.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>5. FPGA / Implementation Result</h3>
+            <ul class="muted">
+              <li>Run synthesis and implementation using Quartus or Vivado.</li>
+              <li>Check resource utilization: LUT/ALM, FF, memory and DSP blocks.</li>
+              <li>Review timing report and identify critical path if timing fails.</li>
+              <li>Validate design on FPGA board when applicable.</li>
+              <li>Record board result, waveform, timing report and compilation summary.</li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>6. Documentation Mindset</h3>
+            <ul class="muted">
+              <li>Write clear README for each project.</li>
+              <li>Include block diagram, RTL architecture, waveform and FPGA result.</li>
+              <li>Explain what I designed, what I verified and what result I achieved.</li>
+              <li>Prepare portfolio content so recruiters can quickly understand my engineering contribution.</li>
+            </ul>
           </div>
         </div>
       `
