@@ -1630,21 +1630,24 @@ document.querySelectorAll("#paperRating .star").forEach(b=>b.addEventListener("c
 document.querySelectorAll("#paperReactions .reaction").forEach(b=>b.addEventListener("click",()=>reaction=b.dataset.reaction));
 document.getElementById("submitPaperFeedback")?.addEventListener("click",async(e)=>{
  e.stopImmediatePropagation();
- const status=document.getElementById("feedbackStatus"),comment=document.getElementById("paperComment").value.trim();
- status.classList.add("show");
- if(!rating&&!reaction&&!comment){status.textContent="Please leave a rating, reaction, or comment.";return}
- if(!ready){status.textContent="Firebase is not configured yet. Paste your Firebase config into index.html.";return}
+ const button=e.currentTarget;
+ const status=document.getElementById("feedbackStatus");
+ const commentBox=document.getElementById("paperComment");
+ const comment=commentBox ? commentBox.value.trim() : "";
+ if(status) status.classList.add("show");
+ if(!rating&&!reaction&&!comment){if(status) status.textContent="Please leave a rating, reaction, or comment.";return}
+ if(!ready){if(status) status.textContent="Firebase is not configured yet.";return}
  try{
-   e.currentTarget.disabled=true;e.currentTarget.textContent="Submitting...";
+   if(button){button.disabled=true;button.textContent="Submitting...";}
    await addDoc(collection(db,"paperFeedback"),{paperId:"dilithium-polymult-accelerator",rating:rating||null,reaction:reaction||null,comment,createdAt:serverTimestamp()});
-   status.textContent="Thank you! Your feedback has been submitted. ❤️";e.currentTarget.textContent="Feedback Submitted ✓";
+   if(status) status.textContent="Thank you! Your feedback has been submitted. ❤️";
+   if(button) button.textContent="Feedback Submitted ✓";
  }catch(err){
    console.error("Firebase feedback error:", err);
-   const code = err?.code || "unknown-error";
-   const message = err?.message || String(err);
-   status.textContent = `Firebase error: ${code} — ${message}`;
-   e.currentTarget.disabled=false;
-   e.currentTarget.textContent="Submit Feedback";
+   const code=err?.code || "unknown-error";
+   const message=err?.message || String(err);
+   if(status) status.textContent=`Firebase error: ${code} — ${message}`;
+   if(button){button.disabled=false;button.textContent="Submit Feedback";}
  }
 },true);
 </script>
