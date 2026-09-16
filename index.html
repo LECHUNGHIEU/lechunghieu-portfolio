@@ -721,8 +721,7 @@
             <div class="feedback-status" id="feedbackStatus"></div>
 
             <p class="paper-note">
-              Feedback is currently stored locally in the visitor's browser. A database or form backend
-              can be connected later to collect responses from visitors.
+              Your feedback is submitted securely to the paper feedback database.
             </p>
           </aside>
         </div>
@@ -1615,35 +1614,8 @@
       });
     });
 
-    const feedbackButton = document.getElementById("submitPaperFeedback");
-    if (feedbackButton) {
-      feedbackButton.addEventListener("click", () => {
-        const comment = document.getElementById("paperComment").value.trim();
-        const status = document.getElementById("feedbackStatus");
+    // Feedback submission is handled by the Firebase module below.
 
-        if (!selectedPaperRating && !selectedPaperReaction && !comment) {
-          status.textContent = "Please leave a rating, choose a reaction, or write a short comment before submitting.";
-          status.classList.add("show");
-          return;
-        }
-
-        const feedback = {
-          rating: selectedPaperRating,
-          reaction: selectedPaperReaction,
-          comment,
-          submittedAt: new Date().toISOString()
-        };
-
-        const saved = JSON.parse(localStorage.getItem("lchPaperFeedback") || "[]");
-        saved.push(feedback);
-        localStorage.setItem("lchPaperFeedback", JSON.stringify(saved));
-
-        status.innerHTML = "Thank you for reading my research and sharing your thoughts. Your feedback means a lot to me. ❤️";
-        status.classList.add("show");
-        feedbackButton.textContent = "Feedback Submitted ✓";
-        feedbackButton.disabled = true;
-      });
-    }
 
   </script>
 
@@ -1666,7 +1638,14 @@ document.getElementById("submitPaperFeedback")?.addEventListener("click",async(e
    e.currentTarget.disabled=true;e.currentTarget.textContent="Submitting...";
    await addDoc(collection(db,"paperFeedback"),{paperId:"dilithium-polymult-accelerator",rating:rating||null,reaction:reaction||null,comment,createdAt:serverTimestamp()});
    status.textContent="Thank you! Your feedback has been submitted. ❤️";e.currentTarget.textContent="Feedback Submitted ✓";
- }catch(err){console.error(err);status.textContent="Could not submit feedback. Check Firebase settings.";e.currentTarget.disabled=false;e.currentTarget.textContent="Submit Feedback"}
+ }catch(err){
+   console.error("Firebase feedback error:", err);
+   const code = err?.code || "unknown-error";
+   const message = err?.message || String(err);
+   status.textContent = `Firebase error: ${code} — ${message}`;
+   e.currentTarget.disabled=false;
+   e.currentTarget.textContent="Submit Feedback";
+ }
 },true);
 </script>
 </body>
