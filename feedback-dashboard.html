@@ -1,0 +1,92 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Paper Feedback Dashboard</title>
+<style>body{margin:0;background:#060b16;color:#edf5ff;font-family:Arial,sans-serif}.w{width:min(1100px,92%);margin:40px auto}h1{font-size:42px}.muted{color:#9fb2cc}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:#101d32;border:1px solid #ffffff20;border-radius:18px;padding:20px;margin:14px 0}.stat b{display:block;font-size:30px;margin-top:8px}.row{display:flex;justify-content:space-between;gap:15px}.stars{color:#fbbf24}.reaction{color:#5eead4}.warn{color:#fde68a}@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}}</style></head>
+<body><main class="w"><p class="muted">PRIVATE RESEARCH DASHBOARD</p><h1>Paper Feedback</h1><p id="msg" class="warn"></p>
+<div class="stats"><div class="card stat">Responses<b id="total">0</b></div><div class="card stat">Average<b id="avg">—</b></div><div class="card stat">5 Stars<b id="five">0</b></div><div class="card stat">Comments<b id="comments">0</b></div></div>
+<h2>Recent feedback</h2><div id="list" class="muted">Loading...</div></main>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import {
+  getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import {
+  getFirestore, collection, getDocs, query, orderBy
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+const firebaseConfig={
+  apiKey:"AIzaSyD5ZU8pzq2VKdF3V9IRjHAlUbk24wMH4mg",
+  authDomain:"lechunghieu-portfolio.firebaseapp.com",
+  projectId:"lechunghieu-portfolio",
+  storageBucket:"lechunghieu-portfolio.firebasestorage.app",
+  messagingSenderId:"984008207135",
+  appId:"1:984008207135:web:1ba7e080ca98fbf5d19e2a"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+const provider=new GoogleAuthProvider();
+
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const msg=document.getElementById("msg");
+const list=document.getElementById("list");
+
+const authBox=document.createElement("div");
+authBox.className="card";
+authBox.innerHTML=`
+  <div class="row" style="align-items:center">
+    <div>
+      <b id="authTitle">Sign in required</b>
+      <div class="muted" id="authInfo">Sign in with your Google account to access the private dashboard.</div>
+      <div class="muted" id="uidLine" style="margin-top:8px;display:none"></div>
+    </div>
+    <div>
+      <button id="loginBtn" style="padding:11px 16px;border:0;border-radius:12px;font-weight:700;cursor:pointer">Sign in with Google</button>
+      <button id="logoutBtn" style="padding:11px 16px;border:0;border-radius:12px;font-weight:700;cursor:pointer;display:none">Sign out</button>
+    </div>
+  </div>`;
+document.querySelector("h1").insertAdjacentElement("afterend",authBox);
+
+document.getElementById("loginBtn").onclick=async()=>{
+  msg.textContent="";
+  try{ await signInWithPopup(auth,provider); }
+  catch(e){ console.error(e); msg.textContent="Google sign-in failed: "+e.message; }
+};
+document.getElementById("logoutBtn").onclick=()=>signOut(auth);
+
+async function loadFeedback(){
+  try{
+    const snap=await getDocs(query(collection(db,"paperFeedback"),orderBy("createdAt","desc")));
+    const a=snap.docs.map(d=>d.data()),r=a.map(x=>+x.rating).filter(Boolean);
+    document.getElementById("total").textContent=a.length;
+    document.getElementById("avg").textContent=r.length?(r.reduce((x,y)=>x+y,0)/r.length).toFixed(1)+"/5":"—";
+    document.getElementById("five").textContent=r.filter(x=>x===5).length;
+    document.getElementById("comments").textContent=a.filter(x=>x.comment?.trim()).length;
+    list.innerHTML=a.length?a.map(x=>`<div class="card"><div class="row"><span class="stars">${x.rating?"★".repeat(x.rating)+"☆".repeat(5-x.rating):"No rating"}</span><span class="reaction">${esc(x.reaction||"")}</span></div><p>${esc(x.comment||"No written comment.")}</p></div>`).join(""):"No feedback yet.";
+    msg.textContent="";
+  }catch(e){
+    console.error(e);
+    msg.textContent="Signed in successfully. Your UID is shown above. Firestore is still blocking reads until this UID is added to the security rules.";
+    list.textContent="Waiting for owner-only Firestore rule.";
+  }
+}
+
+onAuthStateChanged(auth,user=>{
+  const login=document.getElementById("loginBtn"), logout=document.getElementById("logoutBtn");
+  const title=document.getElementById("authTitle"), info=document.getElementById("authInfo"), uid=document.getElementById("uidLine");
+  if(user){
+    login.style.display="none"; logout.style.display="inline-block";
+    title.textContent="Signed in";
+    info.textContent=(user.displayName||"Google user")+" · "+(user.email||"");
+    uid.style.display="block";
+    uid.innerHTML="<b>Your Firebase UID:</b> "+esc(user.uid);
+    loadFeedback();
+  }else{
+    login.style.display="inline-block"; logout.style.display="none";
+    title.textContent="Sign in required";
+    info.textContent="Sign in with your Google account to access the private dashboard.";
+    uid.style.display="none";
+    msg.textContent="";
+    list.textContent="Sign in to view feedback.";
+  }
+});
+</script></body></html>
